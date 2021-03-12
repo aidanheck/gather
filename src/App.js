@@ -47,11 +47,11 @@ class App extends Component {
   render() {
 
     let { events, locations, selectedLocation, numberOfEvents } = this.state;
-
+    
     return (
       <div>
         <Navbar className="navbar" sticky="top" expand="lg">
-        <Navbar.Brand className="logo" href="#home">gather</Navbar.Brand>
+        <Navbar.Brand className="logo" href="/">gather</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
          <Nav className="mr-auto">
