@@ -1,14 +1,20 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import App from '../App';
+import { shallow, mount } from 'enzyme';
 import CitySearch from '../CitySearch';
 import { mockData } from '../mock-data';
-import { extractLocations } from '../api';
+import { extractLocations, getEvents } from '../api';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+Enzyme.configure({ adapter: new Adapter() });
+
 
 describe('<CitySearch /> component', () => {
       let locations, CitySearchWrapper;
       beforeAll(() => {
             locations = extractLocations(mockData);
-            CitySearchWrapper = shallow(<CitySearch locations={locations} />);
+            CitySearchWrapper = shallow(<CitySearch locations={locations} updateEvents={() => {}} />);
       });
 
       test('render text input', () => {
@@ -59,5 +65,22 @@ describe('<CitySearch /> component', () => {
             const suggestions = CitySearchWrapper.state('suggestions');
             CitySearchWrapper.find('.suggestions li').at(0).simulate('click');
             expect(CitySearchWrapper.state("query")).toBe(suggestions[0]);
+            expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({display: 'none' });
+      });
+      // test('get list of all events when user selects "see all cities"', async () => {
+      //       const AppWrapper = mount(<App />);
+      //       const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
+      //       await suggestionItems.at(suggestionItems.length - 1).simulate('click');
+      //       const allEvents = await getEvents();
+      //       expect(AppWrapper.state('events')).toEqual(allEvents);
+      //       AppWrapper.unmount();
+      // });
+      test('suggestions list will appear when focusing on the city input field', () => {
+            CitySearchWrapper.setState({
+                  query: '',
+                  suggestions: locations, 
+            });
+            CitySearchWrapper.find('.city').simulate('focus');
+            expect(CitySearchWrapper.find('.suggestions').prop('style')).toEqual({});
       });
       });

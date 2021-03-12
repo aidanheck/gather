@@ -2,6 +2,10 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Event from '../Event';
 import { mockData } from '../mock-data';
+import Enzyme from 'enzyme';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
+
+Enzyme.configure({ adapter: new Adapter() });
 
 describe ('<Event /> component', () => {
       let EventWrapper;

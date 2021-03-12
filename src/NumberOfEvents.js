@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 
 class NumberOfEvents extends Component {
       state = {
-            numOfEvents: 2,
+          numberOfEvents: 32
       }
 
       handleInput = (event) => {
             const value = event.target.value;
-            this.props.updateEvents(null, value);
-            this.setState({ numOfEvents: value });
 
             if (value < 1 ) {
-                  console.error('please choose a number greater than 0');
+                  console.error('please choose a number greater than or equal to 1');
             } else {
-                  this.setState.numOfEvents = value;
+                  this.setState({ numberOfEvents: value });
+                  this.props.updateEvents(this.props.selectedLocation, value);
             }
       };
 
       render () {
       return (
             <div className="NumberOfEvents">
-                  <label className="eventNumLabel">number of events</label>
+                  <label className="eventNumLabel">number of events: &nbsp;</label>
                   <input 
-                        className="eventNumber"
+                        className="events"
                         type="number"
-                        value={this.state.numOfEvents}
+                        value={this.props.numberOfEvents}
                         onChange={this.handleInput}>
                         </input>
                   </div>
+                  
              );
       }
 }
