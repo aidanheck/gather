@@ -51,7 +51,7 @@ class App extends Component {
     return (
       <div>
         <Navbar className="navbar" sticky="top" expand="lg">
-        <Navbar.Brand className="logo" href="javascript:window.location.reload()">gather</Navbar.Brand>
+        <Navbar.Brand className="logo" href="#">gather</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
          <Navbar.Collapse id="basic-navbar-nav">
          <Nav className="mr-auto">
