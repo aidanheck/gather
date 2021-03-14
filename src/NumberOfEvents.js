@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class NumberOfEvents extends Component {
+      constructor() {
+            super();
+            this.handleInput = this.handleInput.bind(this);
+      }
       state = {
-          numberOfEvents: 32
+          numberOfEvents: '32'
       }
 
       handleInput = (event) => {
@@ -12,7 +17,6 @@ class NumberOfEvents extends Component {
                   console.error('please choose a number greater than or equal to 1');
             } else {
                   this.setState({ numberOfEvents: value });
-                  this.props.updateEvents(this.props.selectedLocation, value);
             }
       };
 
@@ -21,9 +25,9 @@ class NumberOfEvents extends Component {
             <div className="NumberOfEvents">
                   <label className="eventNumLabel">number of events: &nbsp;</label>
                   <input 
-                        className="events"
+                        className="number"
                         type="number"
-                        value={this.props.numberOfEvents}
+                        value={this.state.numberOfEvents}
                         onChange={this.handleInput}>
                         </input>
                   </div>
@@ -31,5 +35,10 @@ class NumberOfEvents extends Component {
              );
       }
 }
+
+NumberOfEvents.propTypes = {
+      numberOfEvents: PropTypes.string,
+      updateEvents: PropTypes.func,
+};
 
 export default NumberOfEvents;

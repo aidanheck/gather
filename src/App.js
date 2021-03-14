@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
+import NumberOfEvents from './NumberOfEvents';
+import CitySearch from './CitySearch';
+import EventList from './EventList';
+import { extractLocations, getEvents } from './api';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './nprogress.css';
 import './App.css';
-import EventList from './EventList';
-import CitySearch from './CitySearch';
-import NumberOfEvents from './NumberOfEvents';
-import { extractLocations, getEvents } from './api';
 
 class App extends Component {
+  // constructor(props) {
+  //   super(props);
+  // }
+
   state = {
     events: [],
     locations: [],
     selectedLocation: 'all',
-    numberOfEvents: 32,
+    numberOfEvents: '32',
   }
 
   componentDidMount() {

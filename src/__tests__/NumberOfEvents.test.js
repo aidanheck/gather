@@ -6,29 +6,26 @@ import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-
 describe('<NumberOfEvents /> component', () => {
       let NumberOfEventsWrapper;
-
       beforeAll(() => {
-            NumberOfEventsWrapper = shallow(<NumberOfEvents updateEvents={() => {} } />);
+        NumberOfEventsWrapper = shallow(<NumberOfEvents />);
+      });
+    
+      test('renders text input', () => {
+        expect(NumberOfEventsWrapper.find('.number')).toHaveLength(1);
       });
 
-      test('render text input', () => {
-            expect(NumberOfEventsWrapper.find('.eventNumber')).toHaveLength(1);
+      test('renders number input correctly', () => {
+       const eventNum = NumberOfEventsWrapper.instance().state
+            .numberOfEvents;
+          expect(NumberOfEventsWrapper.find('.number').prop('value')).toBe(eventNum);
       });
 
-      test('renders text input correctly', () => {
-            const numofEvents = NumberOfEventsWrapper.state('numOfEvents');
-            expect(NumberOfEventsWrapper.find('.eventNumber').prop('value')).toBe(numofEvents);
-      });
+      test('should change state when input changes', () => {
+            const eventObject = { target: { value: '1' } };
+            NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
+            expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe('1');
+          });
 
-      test('change state when input changes', () => {
-            NumberOfEventsWrapper.setState({
-                  numOfEvents: '2'
-            });
-            const eventObject = { target: { value: '10' }};
-            NumberOfEventsWrapper.find('.eventNumber').simulate('change', eventObject);
-            expect(NumberOfEventsWrapper.state('numOfEvents')).toBe('10');
-      });
-});
+    });
