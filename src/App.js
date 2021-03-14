@@ -56,13 +56,10 @@ class App extends Component {
       <div>
         <Navbar className="navbar" sticky="top" expand="lg">
         <Navbar.Brand className="logo" href="#">gather</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-         <Navbar.Collapse id="basic-navbar-nav">
          <Nav className="mr-auto">
         <Nav.Link href="https://github.com/membraned">github</Nav.Link>
         <Nav.Link href="https://www.linkedin.com/in/aidanheck/">linkedin</Nav.Link>
        </Nav>
-  </Navbar.Collapse>
 </Navbar>
       <div className="App">
         <Container className="appContainer">
