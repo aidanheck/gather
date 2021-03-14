@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '/Users/aidanheck/Documents/careerfoundry/gather/src/App.css';
-import './nprogress.css';
 import NumberOfEvents from './NumberOfEvents';
 import CitySearch from './CitySearch';
 import EventList from './EventList';
@@ -9,6 +6,9 @@ import { extractLocations, getEvents } from './api';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+import './nprogress.css';
 
 class App extends Component {
   // constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    selectedLocation: 'all',
+    currentLocation: 'all',
     numberOfEvents: '32',
   }
 
@@ -48,6 +48,42 @@ class App extends Component {
     });
   }
 
+//   updateEvents = (location, eventCount) => {
+//   const { currentLocation, numberOfEvents } = this.state;
+//   // if user selects a location from input
+//   if (location) {
+//     getEvents().then((response) => {
+//       // Applies new filter for location
+//       const locationEvents =
+//         location === 'all'
+//           ? response.events
+//           : response.events.filter((event) => event.location === location);
+//       return this.setState({
+//         events: numberOfEvents,
+//         currentLocation: location,
+//         locations: response.locations,
+//       });
+//     });
+//   } else {
+//     getEvents().then((response) => {
+//       // Persists location filter from state
+//       const locationEvents =
+//         currentLocation === 'all'
+//           ? response.events
+//           : response.events.filter(
+//               (event) => event.location === currentLocation
+//             );
+//       if (this.mounted) {
+//         return this.setState({
+//           events: numberOfEvents,
+//           numberOfEvents: eventCount,
+//           locations: response.locations,
+//         });
+//       }
+//     });
+//   }
+// };
+
   render() {
 
     let { events, locations, selectedLocation, numberOfEvents } = this.state;
@@ -56,10 +92,13 @@ class App extends Component {
       <div>
         <Navbar className="navbar" sticky="top" expand="lg">
         <Navbar.Brand className="logo" href="#">gather</Navbar.Brand>
-         <Nav className="mr-auto">
-        <Nav.Link href="https://github.com/membraned">github</Nav.Link>
-        <Nav.Link href="https://www.linkedin.com/in/aidanheck/">linkedin</Nav.Link>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+            <Nav className="mr-auto">
+              <Nav.Link href="https://github.com/membraned">github</Nav.Link>
+              <Nav.Link href="https://www.linkedin.com/in/aidanheck/">linkedin</Nav.Link>
        </Nav>
+       </Navbar.Collapse>
 </Navbar>
       <div className="App">
         <Container className="appContainer">

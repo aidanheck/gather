@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from 'prop-types';
 
 class Event extends Component {
       state = {
@@ -10,7 +11,7 @@ class Event extends Component {
                   this.setState({ showDetails: true });
             }
             else {
-                  this.setState({ showDetails: false })
+                  this.setState({ showDetails: false });
             }
       };
 
@@ -41,5 +42,9 @@ class Event extends Component {
     );
   }
 }
+
+Event.propTypes = {
+      event: PropTypes.object.isRequired,
+};
 
 export default Event;

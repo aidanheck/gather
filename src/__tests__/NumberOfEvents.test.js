@@ -28,4 +28,11 @@ describe('<NumberOfEvents /> component', () => {
             expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe('1');
           });
 
+      test('number input should render numberOfEvents as its value correctly', () => {
+            const numberOfEvents = NumberOfEventsWrapper.instance().state
+              .numberOfEvents;
+            expect(NumberOfEventsWrapper.find('.number').prop('value')).toEqual(
+              numberOfEvents
+            );
+          });
     });
