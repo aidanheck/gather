@@ -23,9 +23,9 @@ describe('<NumberOfEvents /> component', () => {
       });
 
       test('should change state when input changes', () => {
-            const eventObject = { target: { value: '1' } };
+            const eventObject = { target: { value: 1} };
             NumberOfEventsWrapper.find('.number').simulate('change', eventObject);
-            expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe('1');
+            expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(1);
           });
 
       test('number input should render numberOfEvents as its value correctly', () => {
