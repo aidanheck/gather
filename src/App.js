@@ -7,7 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.scss';
+import './App.css';
 import './nprogress.css';
 
 class App extends Component {
