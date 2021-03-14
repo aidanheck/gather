@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import './nprogress.css';
 import NumberOfEvents from './NumberOfEvents';
 import CitySearch from './CitySearch';
 import EventList from './EventList';
@@ -6,9 +9,6 @@ import { extractLocations, getEvents } from './api';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './nprogress.css';
-import './App.css';
 
 class App extends Component {
   // constructor(props) {
