@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './App.css';
+import '/Users/aidanheck/Documents/careerfoundry/gather/src/App.css';
 import './nprogress.css';
 import NumberOfEvents from './NumberOfEvents';
 import CitySearch from './CitySearch';
