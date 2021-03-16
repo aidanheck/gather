@@ -5,18 +5,9 @@ class CitySearch extends Component {
       state = {
             query: '',
             suggestions: [],
-            showSuggestions: false,
+            showSuggestions: undefined,
             locations: this.props.locations,
       }
-
-      handleItemClicked = (suggestion) => {
-            this.setState({
-                  query: suggestion,
-                  suggestions: [],
-                  showSuggestions: false,
-            });
-            this.props.updateEvents(suggestion);
-      };
 
       handleInputChanged = (event) => {
             const value = event.target.value;
@@ -33,24 +24,35 @@ class CitySearch extends Component {
                   this.setState({
                         query: value,
                         suggestions,
+                        showSuggestions: true,
                   });
             }
       };
 
+
+      handleItemClicked = (suggestion) => {
+            this.setState({
+                  query: suggestion,
+                  suggestions: [],
+                  showSuggestions: false,
+            });
+
+            this.props.updateEvents(suggestion);
+      };
+
       render() {
-            let { query, suggestions, showSuggestions } = this.state;
             return (
                   <div className="CitySearch">
                         <input type="text" 
                         className="city" 
                         placeholder="search cities"
-                        value={query} 
+                        value={this.state.query} 
                         onChange={this.handleInputChanged} 
-                        onFocus={() => { this.setState({ showSuggestions: true }) }} />
-                  <ul className="suggestions" style={showSuggestions ? {} : { display: 'none' }}>
-                        {suggestions.map((suggestion) => (
-                              <li id={suggestions} key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
-                        ))}
+                        onFocus={() => { this.setState({showSuggestions: true}) }} />
+                <ul  className="suggestions" style={this.state.showSuggestions ? {} : { display: 'none' }}>
+                    {this.state.suggestions.map((suggestion) => (
+                        <li key={suggestion} onClick={() => this.handleItemClicked(suggestion)}>{suggestion}</li>
+                    ))}
                         <li key='all' onClick={() => this.handleItemClicked('all')}>
                               <b>see all cities</b>
                         </li>

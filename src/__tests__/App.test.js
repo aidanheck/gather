@@ -3,6 +3,7 @@ import { shallow, mount } from 'enzyme';
 import App from '../App';
 import EventList from '../EventList';
 import CitySearch from '../CitySearch';
+import NumberOfEvents from '../NumberOfEvents';
 import Enzyme from 'enzyme';
 import { mockData } from '../mock-data';
 import { extractLocations, getEvents } from '../api';
@@ -37,19 +38,39 @@ describe ('<App /> component', () => {
             expect(AppWrapper.find(CitySearch).props().locations).toEqual(AppLocationsState);
             AppWrapper.unmount();
       });
-
-      test('get list of events matching the city selected by the user', async () => {
-            const AppWrapper = mount(<App />);
-            const CitySearchWrapper = AppWrapper.find(CitySearch);
-            const locations = extractLocations(mockData);
-            CitySearchWrapper.setState({ suggestions: locations });
-            const suggestions = CitySearchWrapper.state('suggestions');
-            const selectedIndex = Math.floor(Math.random() * (suggestions.length));
-            const selectedCity = suggestions[selectedIndex];
-            await CitySearchWrapper.instance().handleItemClicked(selectedCity);
-            const allEvents = await getEvents();
-            const eventsToShow = allEvents.filter(event => event.location === selectedCity);
-            expect(AppWrapper.state('events')).toEqual(eventsToShow);
-            AppWrapper.unmount();
+    
+      test('App passes "numberOfEvents" and "selectedLocation" states as props to NumberOfEvents', () => {
+        const AppWrapper = mount(<App />);
+        const AppNumberOfEventsState = AppWrapper.state('numberOfEvents');
+        const AppSelectedLocationState = AppWrapper.state('selectedLocation');
+        expect(AppNumberOfEventsState).not.toEqual(undefined);
+        expect(AppWrapper.find(NumberOfEvents).props().numberOfEvents).toEqual(AppNumberOfEventsState);
+        expect(AppWrapper.find(NumberOfEvents).props().selectedLocation).toEqual(AppSelectedLocationState);
+        AppWrapper.unmount();
       });
-});
+
+      // test('App updates "selectedLocation" state when user selects location', async () => {
+      //       const AppWrapper = mount(<App />);
+      //       const CitySearchWrapper = AppWrapper.find(CitySearch);
+      //       const locations = extractLocations(mockData);
+      //       CitySearchWrapper.setState({ suggestions: locations });
+      //       const suggestions = CitySearchWrapper.state('suggestions');
+      //       const selectedIndex = Math.floor(Math.random() * (suggestions.length));
+      //       const selectedCity = suggestions[selectedIndex];
+      //       await CitySearchWrapper.instance().handleItemClicked(selectedCity);
+      //       expect(AppWrapper.state('selectedLocation')).toBe(selectedCity);
+      //       AppWrapper.unmount();
+      //     });
+
+
+      test('get list of all events when user selects "see all cities"', async () => {
+            const AppWrapper = mount(<App />);
+            const suggestionItems = AppWrapper.find(CitySearch).find('.suggestions li');
+            await suggestionItems.at(suggestionItems.length - 1).simulate('click');
+            const allEvents = await getEvents();
+            expect(AppWrapper.state('events')).toEqual(allEvents);
+            AppWrapper.unmount();
+        });
+
+    });
+    

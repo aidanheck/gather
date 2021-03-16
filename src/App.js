@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import NumberOfEvents from './NumberOfEvents';
+import { extractLocations, getEvents } from './api';
+
 import CitySearch from './CitySearch';
 import EventList from './EventList';
-import { extractLocations, getEvents } from './api';
+import NumberOfEvents from './NumberOfEvents';
+
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import './nprogress.css';
@@ -16,10 +19,10 @@ class App extends Component {
   // }
 
   state = {
+    numberOfEvents: 32,
     events: [],
     locations: [],
     currentLocation: 'all',
-    numberOfEvents: 32,
   }
 
   componentDidMount() {
@@ -38,56 +41,20 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location, eventNum ) => {
+  updateEvents = (location, eventNum = this.state.numberOfEvents) => {
+    if (location) {
     getEvents().then((events) => {
-      const locationEvents = events.filter((event) => event.location === location);
-      this.setState({
-        events: locationEvents,
+      const locationEvents = location && location !== 'all' ? events.filter((event) => event.location === location) : events;
+      this.setState( {
+        events: locationEvents.slice(0, eventNum),
         numberOfEvents: eventNum
-      });
-    });
-  }
+     });
 
-//   updateEvents = (location, eventCount) => {
-//   const { currentLocation, numberOfEvents } = this.state;
-//   // if user selects a location from input
-//   if (location) {
-//     getEvents().then((response) => {
-//       // Applies new filter for location
-//       const locationEvents =
-//         location === 'all'
-//           ? response.events
-//           : response.events.filter((event) => event.location === location);
-//       return this.setState({
-//         events: numberOfEvents,
-//         currentLocation: location,
-//         locations: response.locations,
-//       });
-//     });
-//   } else {
-//     getEvents().then((response) => {
-//       // Persists location filter from state
-//       const locationEvents =
-//         currentLocation === 'all'
-//           ? response.events
-//           : response.events.filter(
-//               (event) => event.location === currentLocation
-//             );
-//       if (this.mounted) {
-//         return this.setState({
-//           events: numberOfEvents,
-//           numberOfEvents: eventCount,
-//           locations: response.locations,
-//         });
-//       }
-//     });
-//   }
-// };
+     });
+    }
+    }
 
   render() {
-
-    let { events, locations, selectedLocation, numberOfEvents } = this.state;
-
     return (
       <div>
         <Navbar className="navbar" sticky="top" expand="lg">
@@ -100,13 +67,15 @@ class App extends Component {
        </Nav>
        </Navbar.Collapse>
 </Navbar>
+
       <div className="App">
         <Container className="appContainer">
-        <CitySearch locations={locations} updateEvents={this.updateEvents} />
-        <EventList events={events} />
-        <NumberOfEvents numberOfEvents={numberOfEvents} selectedLocation={selectedLocation} updateEvents={this.updateEvents} />
+        <CitySearch locations={this.state.locations} updateEvents={this.updateEvents} />
+        <EventList events={this.state.events} />
+        <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents} />
         </Container>
       </div>
+      
       </div>
     );
   }

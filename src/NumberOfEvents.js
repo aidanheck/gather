@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 class NumberOfEvents extends Component {
       constructor() {
             super();
-            // this.throttleHandleInput = debounce(
-            //       this.throttleHandleInput.bind(this),
-            //       1500
-            //     );
             this.handleInput = this.handleInput.bind(this);
       }
 
@@ -16,23 +12,19 @@ class NumberOfEvents extends Component {
           numberOfEvents: 32,
       };
 
-      // throttleHandleInput(value) {
-      //       this.props.updateEvents(null, value);
-      //     }
-
       handleInput = (event) => {
-            const value = event.target.value;
+            const value = Number(event.target.value);
 
             if (value < 1 ) {
                   console.error('please choose a number greater than or equal to 1');
             } else {
                   this.setState({ numberOfEvents: value });
-                  // this.throttleHandleInput(value);
             }
       };
 
       render () {
       return (
+            
             <div className="NumberOfEvents">
                   <label className="eventNumLabel">number of events: &nbsp;</label>
                   <input 
