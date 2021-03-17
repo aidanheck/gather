@@ -1,47 +1,46 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-// import { debounce } from 'lodash';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class NumberOfEvents extends Component {
-      constructor() {
-            super();
-            this.handleInput = this.handleInput.bind(this);
-      }
+  // constructor() {
+  //       super();
+  //       this.handleInput = this.handleInput.bind(this);
+  // }
 
-      state = {
-          numberOfEvents: 32,
-      };
+  state = {
+    numberOfEvents: 32,
+  };
 
-      handleInput = (event) => {
-            const value = Number(event.target.value);
+  handleInput = (event) => {
+    const value = Number(event.target.value);
+    this.props.updateEvents(null, value);
+    if (value < 1) {
+      console.error("please choose a number greater than or equal to 1");
+    } else {
+      this.setState({
+        numberOfEvents: value,
+      });
+    }
+  };
 
-            if (value < 1 ) {
-                  console.error('please choose a number greater than or equal to 1');
-            } else {
-                  this.setState({ numberOfEvents: value });
-            }
-      };
-
-      render () {
-      return (
-            
-            <div className="NumberOfEvents">
-                  <label className="eventNumLabel">number of events: &nbsp;</label>
-                  <input 
-                        className="number"
-                        type="number"
-                        value={this.state.numberOfEvents}
-                        onChange={this.handleInput}>
-                        </input>
-                  </div>
-                  
-             );
-      }
+  render() {
+    return (
+      <div className="NumberOfEvents">
+        <label className="eventNumLabel">number of events: &nbsp;</label>
+        <input
+          className="number"
+          type="number"
+          value={this.state.numberOfEvents}
+          onChange={this.handleInput}
+        ></input>
+      </div>
+    );
+  }
 }
 
 NumberOfEvents.propTypes = {
-      numberOfEvents: PropTypes.number,
-      updateEvents: PropTypes.func,
+  numberOfEvents: PropTypes.number,
+  updateEvents: PropTypes.func.isRequired,
 };
 
 export default NumberOfEvents;

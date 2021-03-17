@@ -8,8 +8,8 @@
 
 body {
   background-color: #fffdf1;
-  font-family: 'Karla', sans-serif;
-  color:#212529;
+  font-family: "Karla", sans-serif;
+  color: #212529;
 }
 
 ul {
@@ -19,7 +19,7 @@ ul {
 
 .App {
   text-align: center;
-  margin:auto;
+  margin: auto;
 }
 
 .App-logo {
@@ -28,7 +28,7 @@ ul {
 }
 
 .logo {
-  font-family:'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-size: 1.8em;
   margin-left: 2%;
   color: #212529;
@@ -37,7 +37,6 @@ ul {
 .navbar {
   background-color: #fffcf1;
 }
-
 
 .App-header {
   /* background-color: #282c34; */
@@ -55,12 +54,10 @@ ul {
   color: #61dafb;
 }
 
-
 .CitySearch {
   margin: auto;
   margin-bottom: 3%;
   max-width: 300px;
-
 }
 
 .city {
@@ -68,21 +65,21 @@ ul {
 }
 
 .appContainer {
-  margin-left:10%;
-  margin-right:10%;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 .eventCard {
   padding: 10px 10px 35px;
   margin-bottom: 10px;
   text-align: left;
-  border: 1px solid #9C8000;
+  border: 1px solid #9c8000;
   border-radius: 4px;
   position: relative;
 }
 
 .eventCardName {
-  font-family:'Merriweather', serif;
+  font-family: "Merriweather", serif;
   font-size: 1.5em;
   color: #212529;
 }
