@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import * as registerServiceWorker from "./serviceWorker";
+import * as serviceWorker from "./serviceWorker";
 import * as atatus from "atatus-spa";
 
 ReactDOM.render(
@@ -14,5 +14,5 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
-registerServiceWorker.unregister();
+serviceWorker.register();
 atatus.config('7661e408847d43379ec0505e4252253f').install();

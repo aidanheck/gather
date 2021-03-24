@@ -4,7 +4,7 @@ import { extractLocations, getEvents } from "./api";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from "./NumberOfEvents";
-import { InfoAlert, ErrorAlert } from "./Alert";
+import { WarningAlert } from "./Alert";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -15,28 +15,13 @@ import "./App.css";
 import "./nprogress.css";
 
 class App extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   state = {
     events: [],
     locations: [],
     numberOfEvents: 32,
     currentLocation: "all",
+    warningText: "",
   };
-
-  // updateEvents = (location, eventNum) => {
-  //   if (location) {
-  //   getEvents().then((events) => {
-  //     const locationEvents = location && location !== 'all' ? events.filter((event) => event.location === location) : events;
-  //     this.setState( {
-  //       events: locationEvents.slice(0, eventNum),
-  //       numberOfEvents: eventNum
-  //    });
-  //    });
-  //   }
-  //   }
 
   updateEvents = (location, eventCount) => {
     const { currentLocation, numberOfEvents } = this.state;
@@ -67,7 +52,7 @@ class App extends Component {
     }
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this.mounted = true;
     getEvents().then((events) => {
       if (this.mounted) {
@@ -76,7 +61,18 @@ class App extends Component {
           locations: extractLocations(events),
         });
       }
+      
     });
+    if (!navigator.onLine) {
+      this.setState({
+        warningText:
+          "You are currently using the app offline and viewing data from your last visit. The app will not be updated with the latest events.",
+      });
+    } else {
+      this.setState({
+        warningText: "",
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -103,6 +99,7 @@ class App extends Component {
 
         <div className="App">
           <Container className="appContainer">
+            <WarningAlert text={this.state.warningText} />
             <CitySearch
               locations={this.state.locations}
               updateEvents={this.updateEvents}
