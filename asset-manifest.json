@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gather/static/css/main.5ba95de7.chunk.css",
-    "main.js": "/gather/static/js/main.2697dee1.chunk.js",
-    "main.js.map": "/gather/static/js/main.2697dee1.chunk.js.map",
+    "main.js": "/gather/static/js/main.b766d36a.chunk.js",
+    "main.js.map": "/gather/static/js/main.b766d36a.chunk.js.map",
     "runtime-main.js": "/gather/static/js/runtime-main.210b6556.js",
     "runtime-main.js.map": "/gather/static/js/runtime-main.210b6556.js.map",
     "static/css/2.fabbef47.chunk.css": "/gather/static/css/2.fabbef47.chunk.css",
@@ -11,6 +11,8 @@
     "static/js/3.14c8616c.chunk.js": "/gather/static/js/3.14c8616c.chunk.js",
     "static/js/3.14c8616c.chunk.js.map": "/gather/static/js/3.14c8616c.chunk.js.map",
     "index.html": "/gather/index.html",
+    "service-worker.js": "/gather/service-worker.js",
+    "service-worker.js.map": "/gather/service-worker.js.map",
     "static/css/2.fabbef47.chunk.css.map": "/gather/static/css/2.fabbef47.chunk.css.map",
     "static/css/main.5ba95de7.chunk.css.map": "/gather/static/css/main.5ba95de7.chunk.css.map",
     "static/js/2.8a9a660f.chunk.js.LICENSE.txt": "/gather/static/js/2.8a9a660f.chunk.js.LICENSE.txt"
@@ -20,6 +22,6 @@
     "static/css/2.fabbef47.chunk.css",
     "static/js/2.8a9a660f.chunk.js",
     "static/css/main.5ba95de7.chunk.css",
-    "static/js/main.2697dee1.chunk.js"
+    "static/js/main.b766d36a.chunk.js"
   ]
 }
