@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { ErrorAlert } from "./Alert";
 
 class NumberOfEvents extends Component {
-  // constructor() {
-  //       super();
-  //       this.handleInput = this.handleInput.bind(this);
-  // }
-
   state = {
     numberOfEvents: 32,
+    errorText: "",
   };
 
   handleInput = (event) => {
     const value = Number(event.target.value);
     this.props.updateEvents(null, value);
     if (value < 1) {
-      console.error("please choose a number greater than or equal to 1");
+      this.setState({
+        errorText: "please choose a number greater than or equal to 1",
+      });
     } else {
       this.setState({
         numberOfEvents: value,
+        errorText: "",
       });
     }
   };
@@ -26,6 +26,7 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="NumberOfEvents">
+        <ErrorAlert text={this.state.errorText} />
         <label className="eventNumLabel">number of events: &nbsp;</label>
         <input
           className="number"

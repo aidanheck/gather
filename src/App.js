@@ -4,6 +4,7 @@ import { extractLocations, getEvents } from "./api";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from "./NumberOfEvents";
+import { InfoAlert, ErrorAlert } from "./Alert";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { InfoAlert } from "./Alert";
 
 class CitySearch extends Component {
   state = {
@@ -7,6 +8,7 @@ class CitySearch extends Component {
     suggestions: [],
     showSuggestions: undefined,
     locations: this.props.locations,
+    infoText: '',
   };
 
   handleInputChanged = (event) => {
@@ -19,12 +21,14 @@ class CitySearch extends Component {
       this.setState({
         query: value,
         showsSuggestions: false,
+        infoText: 'We cannot find the city you are looking for. Please try another city.',
       });
     } else {
       this.setState({
         query: value,
         suggestions,
         showSuggestions: true,
+        infoText: '',
       });
     }
   };
@@ -42,6 +46,7 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        <InfoAlert text={this.state.infoText} />
         <input
           type="text"
           className="city"
