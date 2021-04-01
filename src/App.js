@@ -9,8 +9,21 @@ import { WarningAlert } from "./Alert";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import {
+  ScatterChart,
+  Scatter,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import EventTechnology from "./EventTechnology";
 import "./App.css";
 import "./nprogress.css";
 
@@ -61,7 +74,6 @@ class App extends Component {
           locations: extractLocations(events),
         });
       }
-      
     });
     if (!navigator.onLine) {
       this.setState({
@@ -79,10 +91,21 @@ class App extends Component {
     this.mounted = false;
   }
 
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location === location)
+        .length;
+      const city = location.split(" ").shift();
+      return { city, number };
+    });
+    return data;
+  };
+
   render() {
     return (
       <div>
-        <Navbar className="navbar" sticky="top" expand="lg">
+        <Navbar className="navbar" variant="dark" sticky="top" expand="lg">
           <Navbar.Brand className="logo" href="#">
             gather
           </Navbar.Brand>
@@ -104,11 +127,49 @@ class App extends Component {
               locations={this.state.locations}
               updateEvents={this.updateEvents}
             />
-              <NumberOfEvents
+            <NumberOfEvents
               numberOfEvents={this.state.numberOfEvents}
               updateEvents={this.updateEvents}
             />
+
+            <Container className="columns">
+              <Row>
+                <Col>
+            <Container className="data-vis-wrapper">
+            <h4>technologies</h4>
+              <ResponsiveContainer className="tech-container">
+                <EventTechnology events={this.state.events} />
+              </ResponsiveContainer>
+              <h4>events in each city</h4>
+              <ResponsiveContainer className="city-container" height={400}>
+                <ScatterChart
+                  margin={{ top: 20, right: 20, bottom: 10, left: 10 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis type="category" dataKey="city" name="city" />
+                  <YAxis
+                    allowDecimals={false}
+                    type="number"
+                    dataKey="number"
+                    name="number of events"
+                  />
+                  <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                  <Scatter
+                    name="A school"
+                    data={this.getData()}
+                    fill="#8884d8"
+                  />
+                </ScatterChart>
+              </ResponsiveContainer>
+            </Container>
+            </Col>
+            <Col>
+            <Container className="event-container">
             <EventList events={this.state.events} />
+            </Container>
+            </Col>
+            </Row>
+            </Container>
           </Container>
         </div>
       </div>

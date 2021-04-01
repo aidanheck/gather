@@ -46,11 +46,14 @@ class CitySearch extends Component {
   render() {
     return (
       <div className="CitySearch">
+        
         <InfoAlert text={this.state.infoText} />
+        <h2>choose your nearest city</h2>
         <input
+        style={{width: "50%", height: "2.5em"}}
           type="text"
           className="city"
-          placeholder="search cities"
+          placeholder="search..."
           value={this.state.query}
           onChange={this.handleInputChanged}
           onFocus={() => {
@@ -69,7 +72,7 @@ class CitySearch extends Component {
               {suggestion}
             </li>
           ))}
-          <li key="all" onClick={() => this.handleItemClicked("all")}>
+          <li  className="all-text" key="all" onClick={() => this.handleItemClicked("all")}>
             <b>see all cities</b>
           </li>
         </ul>
