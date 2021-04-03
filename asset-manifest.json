@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/gather/static/css/main.b8c0b83f.chunk.css",
-    "main.js": "/gather/static/js/main.d57ebafd.chunk.js",
-    "main.js.map": "/gather/static/js/main.d57ebafd.chunk.js.map",
-    "runtime-main.js": "/gather/static/js/runtime-main.124a1723.js",
-    "runtime-main.js.map": "/gather/static/js/runtime-main.124a1723.js.map",
+    "main.css": "/gather/static/css/main.1ef3784e.chunk.css",
+    "main.js": "/gather/static/js/main.f3b09e89.chunk.js",
+    "main.js.map": "/gather/static/js/main.f3b09e89.chunk.js.map",
+    "runtime-main.js": "/gather/static/js/runtime-main.35ea707f.js",
+    "runtime-main.js.map": "/gather/static/js/runtime-main.35ea707f.js.map",
     "static/css/2.fabbef47.chunk.css": "/gather/static/css/2.fabbef47.chunk.css",
-    "static/js/2.dea3bd35.chunk.js": "/gather/static/js/2.dea3bd35.chunk.js",
-    "static/js/2.dea3bd35.chunk.js.map": "/gather/static/js/2.dea3bd35.chunk.js.map",
-    "static/js/3.70f48320.chunk.js": "/gather/static/js/3.70f48320.chunk.js",
-    "static/js/3.70f48320.chunk.js.map": "/gather/static/js/3.70f48320.chunk.js.map",
+    "static/js/2.2b888627.chunk.js": "/gather/static/js/2.2b888627.chunk.js",
+    "static/js/2.2b888627.chunk.js.map": "/gather/static/js/2.2b888627.chunk.js.map",
+    "static/js/3.dcf5381f.chunk.js": "/gather/static/js/3.dcf5381f.chunk.js",
+    "static/js/3.dcf5381f.chunk.js.map": "/gather/static/js/3.dcf5381f.chunk.js.map",
     "index.html": "/gather/index.html",
     "service-worker.js": "/gather/service-worker.js",
     "service-worker.js.map": "/gather/service-worker.js.map",
     "static/css/2.fabbef47.chunk.css.map": "/gather/static/css/2.fabbef47.chunk.css.map",
-    "static/css/main.b8c0b83f.chunk.css.map": "/gather/static/css/main.b8c0b83f.chunk.css.map",
-    "static/js/2.dea3bd35.chunk.js.LICENSE.txt": "/gather/static/js/2.dea3bd35.chunk.js.LICENSE.txt",
+    "static/css/main.1ef3784e.chunk.css.map": "/gather/static/css/main.1ef3784e.chunk.css.map",
+    "static/js/2.2b888627.chunk.js.LICENSE.txt": "/gather/static/js/2.2b888627.chunk.js.LICENSE.txt",
     "static/media/App.css": "/gather/static/media/search.69121554.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.124a1723.js",
+    "static/js/runtime-main.35ea707f.js",
     "static/css/2.fabbef47.chunk.css",
-    "static/js/2.dea3bd35.chunk.js",
-    "static/css/main.b8c0b83f.chunk.css",
-    "static/js/main.d57ebafd.chunk.js"
+    "static/js/2.2b888627.chunk.js",
+    "static/css/main.1ef3784e.chunk.css",
+    "static/js/main.f3b09e89.chunk.js"
   ]
 }
