@@ -28,9 +28,12 @@ class Event extends Component {
           <p className="eventCardDate">starts: {event.start.dateTime}</p>
           <p className="eventCardDate">timezone: {event.start.timeZone}</p>
           <p className="eventCardLocation">location: {event.location}</p>
+          </div>
+          <hr></hr>
         <div className="modalButton">
           <EventModal />
         </div>
+        <p></p>
 {/*           
       {!this.state.showDetails && (
             <Button
@@ -54,7 +57,6 @@ class Event extends Component {
               </button>
             </div>
           )} */}
-        </div>
       </div>
       </Container>
     );

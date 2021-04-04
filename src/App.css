@@ -7,6 +7,7 @@
 body {
   background-color: #1e1e1c;
   font-family: "Karla", sans-serif;
+  font-size: .8em;
   color: #fff9e8;
 }
 
@@ -17,6 +18,11 @@ ul {
 
 h4 {
   font-size: 1.2em;
+}
+
+hr {
+  background-color:#9D9D9B;
+  width: 90%;
 }
 
 input {
@@ -65,13 +71,14 @@ input {
   margin: auto;
 }
 
-.city-search-label {
+.citySearchLabel {
+  padding-top: 20px;
   padding-bottom: 15px;
 }
 
 .CitySearch {
   margin: auto;
-  margin-bottom: 3%;
+  /* margin-bottom: 3%; */
 }
 
 .city {
@@ -106,15 +113,18 @@ input {
 .chart-label {
   text-align: left;
   padding-left: 5%;
+  font-size: 1.5em;
 }
 
 .tech-container {
   background-color: #232321;
-  margin-top: 10.7%;
+  margin-top: 7%;
   margin-bottom: 5%;
   margin-left: 5%;
   margin-right: 5%;
   vertical-align: auto;
+  border-radius: 5px;
+  box-shadow: -2px 3px 3px 3px #191917;
 }
 
 .rechart-legends-icon {
@@ -124,32 +134,32 @@ input {
 .city-container {
   background-color: #232321;
   margin: 5%;
+  box-shadow: -2px 3px 3px 3px #191917;
 }
 
 .outerEventContainer {
   background-color: #232321;
-  margin-top: 10%;
-  padding-top: 20px;
-  padding-bottom: 30px;
-  margin-bottom: 50px;
+  margin-top: 6.75%;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: -2px 3px 3px 3px #191917;
 }
 
 .eventContainer {
   background-color: #1e1e1c;
   padding: 5px;
-  margin-left: 3%;
-  margin-right: 3%;
-  margin-top: 20px;
+  margin-top: 5%;
   width: 90%;
 }
 
 .eventCard {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
+  margin-left: 3%;
+  padding: 20px 10px 0px 10px;
   text-align: left;
   border-radius: 4px;
-  position: relative;
-  margin-top: 10%;
+  line-height: 1em;
 }
 
 .eventCardName {
@@ -158,25 +168,51 @@ input {
   color: #fff9e8;
 }
 
-.detailsButton {
-  margin-left: 10%;
-  margin-top: 5%;
-  background-color: #232321;
-  border-color: #232321;
-  padding: 5px 5px;
-  border-radius: 4px;
-  outline: none;
-  cursor: pointer;
-  width: 80%;
-  font-family: "Karla", sans-serif;
+.eventCardDate {
+  margin-top: 1.5em;
 }
 
-.detailsButton:hover .detailsButton:active {
+.detailModal {
+  background-color: #1e1e1c;
+  color:#6B6B69;
+}
+
+.detailsButton {
+  margin-top: 1%;
+  background-color: #232321;
+  border-color: #232321;
+  padding: 5px 10px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  width: 90%;
+  font-family: "Karla", sans-serif;
+  font-size: 1em;
+}
+
+.closeButton {
+  text-align: center;
+  background-color: #232321;
+  border-color: #232321;
+  padding: 5px 10px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  width: 20%;
+  font-family: "Karla", sans-serif;
+  font-size: 1em;
+}
+
+.detailsButton:hover .detailsButton:active .detailsButton:focus .detailsButton:focus-visible .closeButton:hover {
   background-color: #CE2430;
   border-color: #CE2430;
   font-family: "Karla", sans-serif;
 }
 
+@media (max-width: 991.98px) { .outerEventContainer {
+  margin-left: 7.5%;
+  max-width: 95%;
+} }
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

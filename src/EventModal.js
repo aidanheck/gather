@@ -1,44 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-// import Container from "react-bootstrap/Container";
-import { Button, Modal }  from "react-bootstrap";
+import { Button, Container, Modal } from "react-bootstrap";
 
 class EventModal extends Component {
-    constructor(){
-      super();
-      this.state = {
-          showDetails : false
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      showDetails: false,
+    };
   }
 
   handleModalDetails() {
-      this.setState({ showDetails: !this.state.showDetails })
+    this.setState({ showDetails: !this.state.showDetails });
   }
-// state = {
-//             showDetails: false,
-//           };
-
-//   handleClose = () => {
-//     this.setState({ showDetails: false });
-//   };
-
-//   handleShow = () => {
-//     this.setState({ showDetails: true });
-//   };
 
   render() {
-
     const { event } = this.props;
     return (
-      <>
+      <Container>
         <Button
-          variant="primary"
+          variant="danger"
           className="detailsButton"
           onClick={() => this.handleModalDetails()}
         >
           show details
         </Button>
-        <Modal show={this.state.showDetails}>
+        <Modal centered className="detailModal" show={this.state.showDetails}>
           <Modal.Header closeButton onClick={() => this.handleModalDetails()}>
             {/* <Modal.Title>{event.summary}</Modal.Title> */}
           </Modal.Header>
@@ -51,15 +38,15 @@ class EventModal extends Component {
           </Modal.Body>
           <Modal.Footer>
             <Button
-              variant="primary"
-              className="detailsButton"
+              variant="danger"
+              className="closeButton"
               onClick={() => this.handleModalDetails()}
             >
               close
             </Button>
           </Modal.Footer>
         </Modal>
-      </>
+      </Container>
     );
   }
 }

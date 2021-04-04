@@ -134,7 +134,7 @@ class App extends Component {
 
             <Container className="columns">
               <Row>
-                <Col>
+                <Col m={12} lg={{ span: 6, order: "first" }}>
             <Container className="data-vis-wrapper">
               <Container className="tech-container">
                 <br></br>
@@ -169,7 +169,7 @@ class App extends Component {
               </Container>
             </Container>
             </Col>
-            <Col>
+            <Col m={12} lg={{ span: 6, order: "last" }}>
             <Container className="outerEventContainer">
             <EventList events={this.state.events} />
             </Container>

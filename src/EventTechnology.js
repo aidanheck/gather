@@ -7,7 +7,7 @@ const EventTechnology = ({ events }) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(() => getData());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [events]);
   const getData = () => {
     const technologies = ["React", "JavaScript", "Node", "jQuery", "AngularJS"];
@@ -24,26 +24,29 @@ const EventTechnology = ({ events }) => {
     <ResponsiveContainer height={400}>
       <PieChart align="center" height={400} padding={"5%"}>
         <Pie
+          stroke="none"
           data={data}
           // cx={400}
           cy={125}
           labelLine={false}
-          innerRadius={60}
-          outerRadius={80}
+          innerRadius={80}
+          outerRadius={90}
           fill="#8884d8"
-          paddingAngle={5}
+          paddingAngle={0}
           dataKey="value"
         >
           {data.map((entry, index) => (
             <Cell
               key={`cell-${index}`}
               fill={COLORS[index % COLORS.length]}
-              name={entry.name}
+              name= {entry.name}
             />
           ))}
         </Pie>
         <Legend
           layout="vertical"
+          iconType="circle"
+          iconSize="8"
           verticalAlign="bottom"
           width={"90%"}
           wrapperStyle={{
