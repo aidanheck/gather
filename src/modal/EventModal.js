@@ -10,12 +10,12 @@ class EventModal extends Component {
     };
   }
 
-  handleModalDetails() {
+  handleModalDetails = () => {
     this.setState({ showDetails: !this.state.showDetails });
   }
 
   render() {
-    const { event } = this.props;
+    // const { event } = this.props;
     return (
       <Container>
         <Button
@@ -56,3 +56,6 @@ EventModal.propTypes = {
 };
 
 export default EventModal;
+
+
+

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Container from "react-bootstrap/Container";
 // import Button from "react-bootstrap/Button"
-import EventModal from "./EventModal";
+import EventModal from "./modal/EventModal";
 
 class Event extends Component {
   state = {
