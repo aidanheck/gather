@@ -57,7 +57,7 @@ describe("<App /> component", () => {
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     AppWrapper.instance().updateEvents = jest.fn();
     AppWrapper.instance().forceUpdate();
-    NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
+    NumberOfEventsWrapper.setState({ numberOfEvents: 3 });
     const eventObject = { target: { value: 1 } };
     NumberOfEventsWrapper.find(".number").simulate("change", eventObject);
     expect(NumberOfEventsWrapper.state("numberOfEvents")).toBe(1);

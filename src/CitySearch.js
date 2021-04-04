@@ -48,9 +48,9 @@ class CitySearch extends Component {
       <div className="CitySearch">
         
         <InfoAlert text={this.state.infoText} />
-        <h2>choose your nearest city</h2>
+        <h3>choose your nearest city</h3>
         <input
-        style={{width: "50%", height: "2.5em"}}
+        style={{width: "45%", height: "2.5em"}}
           type="text"
           className="city"
           placeholder="search..."

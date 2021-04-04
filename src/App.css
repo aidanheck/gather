@@ -1,12 +1,11 @@
 * {
-  margin: 0;
   box-sizing: border-box;
   list-style: none;
   outline: none;
 }
 
 body {
-  background-color: #232321;
+  background-color: #1e1e1c;
   font-family: "Karla", sans-serif;
   color: #fff9e8;
 }
@@ -14,6 +13,15 @@ body {
 ul {
   padding: 0;
   list-style: none;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+input {
+  background-color: #1e1e1c;
+  border: 1px solid #6B6B69;
 }
 
 .App {
@@ -34,8 +42,8 @@ ul {
 }
 
 .navbar {
-  background-color: #232321;
-  color:#fff9e8
+  background-color: #1e1e1c;
+  color: #fff9e8;
 }
 
 .App-header {
@@ -52,6 +60,11 @@ ul {
   color: #ce2430;
 }
 
+.appContainer {
+  display: block;
+  margin: auto;
+}
+
 .city-search-label {
   padding-bottom: 15px;
 }
@@ -64,64 +77,106 @@ ul {
 .city {
   background-image: url(./icons/search.svg);
   background-repeat: no-repeat;
-  background-position: .5em;
+  background-position: 0.6em;
+  color: #9D9D9B;
+  padding-right: 3%;
 }
 
 ::placeholder {
-  padding-left: 30px;
+  padding-left: 6%;
 }
 
 .all-text {
   padding-left: 30px;
 }
 
-.appContainer {
-  margin-left: 5%;
-  margin-right: 10%;
+.numberOfEvents {
+  width: 100%;
+  text-align: right;
+  margin-top: 3%;
+  padding-right: 27.5%;
+  color: #9D9D9B;
+}
+
+.number {
+  color: #9D9D9B;
+  padding-left: 1%;
+}
+
+.chart-label {
+  text-align: left;
+  padding-left: 5%;
 }
 
 .tech-container {
-
+  background-color: #232321;
+  margin-top: 10.7%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  vertical-align: auto;
 }
 
-.event-container {
-  align-content: center;
+.rechart-legends-icon {
+  display: none;
+}
 
+.city-container {
+  background-color: #232321;
+  margin: 5%;
+}
+
+.outerEventContainer {
+  background-color: #232321;
+  margin-top: 10%;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin-bottom: 50px;
+}
+
+.eventContainer {
+  background-color: #1e1e1c;
+  padding: 5px;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 20px;
+  width: 90%;
 }
 
 .eventCard {
-  background-color: #1E1E1C;
-  align-content: center;
   padding: 10px 10px 35px;
-  width: 80%;
   margin-bottom: 10px;
   text-align: left;
   border-radius: 4px;
   position: relative;
+  margin-top: 10%;
 }
 
 .eventCardName {
   font-family: "Merriweather", serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   color: #fff9e8;
 }
 
-.details-btn {
-  margin: 0;
-  position: absolute;
-  bottom: 20px;
+.detailsButton {
+  margin-left: 10%;
+  margin-top: 5%;
+  background-color: #232321;
+  border-color: #232321;
   padding: 5px 5px;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
   width: 80%;
+  font-family: "Karla", sans-serif;
 }
 
-.NumberOfEvents {
-  width: 300px;
-  /* margin: 1em auto; */
-  align: right;
+.detailsButton:hover .detailsButton:active {
+  background-color: #CE2430;
+  border-color: #CE2430;
+  font-family: "Karla", sans-serif;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

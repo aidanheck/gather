@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Container from "react-bootstrap/Container";
+// import Button from "react-bootstrap/Button"
+import EventModal from "./EventModal";
 
 class Event extends Component {
   state = {
@@ -18,20 +21,25 @@ class Event extends Component {
     const { event } = this.props;
 
     return (
+      <Container className="eventContainer">
       <div className="event">
         <div className="eventCard">
           <h1 className="eventCardName">{event.summary}</h1>
           <p className="eventCardDate">starts: {event.start.dateTime}</p>
           <p className="eventCardDate">timezone: {event.start.timeZone}</p>
           <p className="eventCardLocation">location: {event.location}</p>
-
-          {!this.state.showDetails && (
-            <button
-              className="details-btn"
+        <div className="modalButton">
+          <EventModal />
+        </div>
+{/*           
+      {!this.state.showDetails && (
+            <Button
+              variant="primary"
+              className="detailsButton"
               onClick={() => this.handleShowDetails()}
             >
               show details
-            </button>
+            </Button>
           )}
 
           {this.state.showDetails && (
@@ -45,9 +53,10 @@ class Event extends Component {
                 hide details
               </button>
             </div>
-          )}
+          )} */}
         </div>
       </div>
+      </Container>
     );
   }
 }

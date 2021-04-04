@@ -11,7 +11,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const feature = loadFeature("./src/features/specifyNumberOfEvents.feature");
 
 defineFeature(feature, (test) => {
-  test("32 events are displayed by default", ({ given, when, then }) => {
+  test("3 events are displayed by default", ({ given, when, then }) => {
     given("the app is opened in a browser", () => {});
     let AppWrapper;
     when("the app is mounted", () => {
@@ -21,7 +21,7 @@ defineFeature(feature, (test) => {
       "the number of events specified in the app's state will be shown",
       async () => {
         await AppWrapper.update();
-        expect(AppWrapper.state("numberOfEvents")).toEqual(32);
+        expect(AppWrapper.state("numberOfEvents")).toEqual(3);
       }
     );
   });

@@ -31,7 +31,7 @@ class App extends Component {
   state = {
     events: [],
     locations: [],
-    numberOfEvents: 32,
+    numberOfEvents: 3,
     currentLocation: "all",
     warningText: "",
   };
@@ -127,7 +127,7 @@ class App extends Component {
               locations={this.state.locations}
               updateEvents={this.updateEvents}
             />
-            <NumberOfEvents
+            <NumberOfEvents className="numberOfEvents"
               numberOfEvents={this.state.numberOfEvents}
               updateEvents={this.updateEvents}
             />
@@ -136,14 +136,19 @@ class App extends Component {
               <Row>
                 <Col>
             <Container className="data-vis-wrapper">
-            <h4>technologies</h4>
-              <ResponsiveContainer className="tech-container">
+              <Container className="tech-container">
+                <br></br>
+                <h4 className="chart-label">technologies</h4>
+              <ResponsiveContainer >
                 <EventTechnology events={this.state.events} />
               </ResponsiveContainer>
-              <h4>events in each city</h4>
-              <ResponsiveContainer className="city-container" height={400}>
-                <ScatterChart
-                  margin={{ top: 20, right: 20, bottom: 10, left: 10 }}
+              </Container> 
+              <Container className="city-container">
+                <br></br>
+              <h4 className="chart-label">events in each city</h4>
+              <ResponsiveContainer height={400}>
+                <ScatterChart align="left"
+                  margin={{ top: 20, right: 30, bottom: 10, left: -20 }}
                 >
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis type="category" dataKey="city" name="city" />
@@ -155,16 +160,17 @@ class App extends Component {
                   />
                   <Tooltip cursor={{ strokeDasharray: "3 3" }} />
                   <Scatter
-                    name="A school"
+                    name="locations"
                     data={this.getData()}
-                    fill="#8884d8"
+                    fill="#CE2430"
                   />
                 </ScatterChart>
               </ResponsiveContainer>
+              </Container>
             </Container>
             </Col>
             <Col>
-            <Container className="event-container">
+            <Container className="outerEventContainer">
             <EventList events={this.state.events} />
             </Container>
             </Col>
