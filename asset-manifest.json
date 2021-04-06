@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/gather/static/css/main.9539e5e9.chunk.css",
-    "main.js": "/gather/static/js/main.e8df2e30.chunk.js",
-    "main.js.map": "/gather/static/js/main.e8df2e30.chunk.js.map",
+    "main.css": "/gather/static/css/main.7ba38548.chunk.css",
+    "main.js": "/gather/static/js/main.79fa2042.chunk.js",
+    "main.js.map": "/gather/static/js/main.79fa2042.chunk.js.map",
     "runtime-main.js": "/gather/static/js/runtime-main.52b97c61.js",
     "runtime-main.js.map": "/gather/static/js/runtime-main.52b97c61.js.map",
     "static/css/2.fabbef47.chunk.css": "/gather/static/css/2.fabbef47.chunk.css",
@@ -14,7 +14,7 @@
     "service-worker.js": "/gather/service-worker.js",
     "service-worker.js.map": "/gather/service-worker.js.map",
     "static/css/2.fabbef47.chunk.css.map": "/gather/static/css/2.fabbef47.chunk.css.map",
-    "static/css/main.9539e5e9.chunk.css.map": "/gather/static/css/main.9539e5e9.chunk.css.map",
+    "static/css/main.7ba38548.chunk.css.map": "/gather/static/css/main.7ba38548.chunk.css.map",
     "static/js/2.573a94b9.chunk.js.LICENSE.txt": "/gather/static/js/2.573a94b9.chunk.js.LICENSE.txt",
     "static/media/App.css": "/gather/static/media/search.43df8d72.svg"
   },
@@ -22,7 +22,7 @@
     "static/js/runtime-main.52b97c61.js",
     "static/css/2.fabbef47.chunk.css",
     "static/js/2.573a94b9.chunk.js",
-    "static/css/main.9539e5e9.chunk.css",
-    "static/js/main.e8df2e30.chunk.js"
+    "static/css/main.7ba38548.chunk.css",
+    "static/js/main.79fa2042.chunk.js"
   ]
 }
