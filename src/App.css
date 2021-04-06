@@ -7,7 +7,7 @@
 body {
   background-color: #1e1e1c;
   font-family: "Karla", sans-serif;
-  font-size: .8em;
+  font-size: 0.8em;
   color: #fff9e8;
 }
 
@@ -21,13 +21,13 @@ h4 {
 }
 
 hr {
-  background-color:#9D9D9B;
+  background-color: #9d9d9b;
   width: 90%;
 }
 
 input {
   background-color: #1e1e1c;
-  border: 1px solid #6B6B69;
+  border: 1px solid #6b6b69;
 }
 
 .App {
@@ -78,23 +78,19 @@ input {
 
 .CitySearch {
   margin: auto;
-  /* margin-bottom: 3%; */
 }
 
 .city {
+  color: #9d9d9b;
+  padding-right: 3%;
   background-image: url(./icons/search.svg);
   background-repeat: no-repeat;
   background-position: 0.6em;
-  color: #9D9D9B;
-  padding-right: 3%;
-}
-
-::placeholder {
-  padding-left: 6%;
+  padding-left: 5%;
 }
 
 .all-text {
-  padding-left: 30px;
+  padding-left: 30%;
 }
 
 .numberOfEvents {
@@ -102,11 +98,11 @@ input {
   text-align: right;
   margin-top: 3%;
   padding-right: 27.5%;
-  color: #9D9D9B;
+  color: #9d9d9b;
 }
 
 .number {
-  color: #9D9D9B;
+  color: #9d9d9b;
   padding-left: 1%;
 }
 
@@ -156,7 +152,7 @@ input {
 
 .eventCard {
   margin-left: 3%;
-  padding: 20px 10px 0px 10px;
+  padding: 30px 10px 0px 10px;
   text-align: left;
   border-radius: 4px;
   line-height: 1em;
@@ -169,16 +165,34 @@ input {
 }
 
 .eventCardDate {
-  margin-top: 1.5em;
+  margin-top: 1em;
+}
+
+.eventCardLocation {
+  background-image: url(./icons/map-pin.svg);
+  background-repeat: no-repeat;
+  background-position-y: 40%;
+  padding-left: 5%;
 }
 
 .detailModal {
-  background-color: #1e1e1c;
-  color:#6B6B69;
+  background-color: #fff9e8;
+  color: #6b6b69;
+  font-family: "Karla", sans-serif;
+}
+
+.eventCardDesc {
+  text-align: center;
+}
+
+.eventCardLink {
+  width: 100px;
+  display: inline-block;
 }
 
 .detailsButton {
   margin-top: 1%;
+  margin-bottom: 5%;
   background-color: #232321;
   border-color: #232321;
   padding: 5px 10px;
@@ -186,8 +200,19 @@ input {
   outline: none;
   cursor: pointer;
   width: 90%;
-  font-family: "Karla", sans-serif;
   font-size: 1em;
+}
+
+.linkButton {
+  align-items: center;
+  margin-left: 5%;
+  background-color: #232321;
+  border-color: #232321;
+  padding: 5px 10px;
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+  width: 90%;
 }
 
 .closeButton {
@@ -199,20 +224,32 @@ input {
   outline: none;
   cursor: pointer;
   width: 20%;
-  font-family: "Karla", sans-serif;
-  font-size: 1em;
 }
 
-.detailsButton:hover .detailsButton:active .detailsButton:focus .detailsButton:focus-visible .closeButton:hover {
-  background-color: #CE2430;
-  border-color: #CE2430;
+.detailsButton:hover
+  .detailsButton:active
+  .detailsButton:focus
+  .detailsButton:focus-visible
+  .closeButton:hover
+  .closeButton:active
+  .closeButton:focus {
+  background-color: #ce2430;
+  border-color: #ce2430;
   font-family: "Karla", sans-serif;
 }
 
-@media (max-width: 991.98px) { .outerEventContainer {
-  margin-left: 7.5%;
-  max-width: 95%;
-} }
+@media (max-width: 991.98px) {
+  .outerEventContainer {
+    margin-left: 7.5%;
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .city {
+    padding-left: 10%;
+  }
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

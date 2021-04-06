@@ -4,7 +4,7 @@ import { extractLocations, getEvents } from "./api";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from "./NumberOfEvents";
-import { WarningAlert } from "./Alert";
+import { infoAlert } from "./Alert";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -122,12 +122,13 @@ class App extends Component {
 
         <div className="App">
           <Container className="appContainer">
-            <WarningAlert text={this.state.warningText} />
+            <infoAlert text={this.state.warningText} />
             <CitySearch
               locations={this.state.locations}
               updateEvents={this.updateEvents}
             />
-            <NumberOfEvents className="numberOfEvents"
+            <NumberOfEvents
+              className="numberOfEvents"
               numberOfEvents={this.state.numberOfEvents}
               updateEvents={this.updateEvents}
             />
@@ -135,46 +136,52 @@ class App extends Component {
             <Container className="columns">
               <Row>
                 <Col m={12} lg={{ span: 6, order: "first" }}>
-            <Container className="data-vis-wrapper">
-              <Container className="tech-container">
-                <br></br>
-                <h4 className="chart-label">technologies</h4>
-              <ResponsiveContainer >
-                <EventTechnology events={this.state.events} />
-              </ResponsiveContainer>
-              </Container> 
-              <Container className="city-container">
-                <br></br>
-              <h4 className="chart-label">events in each city</h4>
-              <ResponsiveContainer height={400}>
-                <ScatterChart align="left"
-                  margin={{ top: 20, right: 30, bottom: 10, left: -20 }}
-                >
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="category" dataKey="city" name="city" />
-                  <YAxis
-                    allowDecimals={false}
-                    type="number"
-                    dataKey="number"
-                    name="number of events"
-                  />
-                  <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-                  <Scatter
-                    name="locations"
-                    data={this.getData()}
-                    fill="#CE2430"
-                  />
-                </ScatterChart>
-              </ResponsiveContainer>
-              </Container>
-            </Container>
-            </Col>
-            <Col m={12} lg={{ span: 6, order: "last" }}>
-            <Container className="outerEventContainer">
-            <EventList events={this.state.events} />
-            </Container>
-            </Col>
-            </Row>
+                  <Container className="data-vis-wrapper">
+                    <Container className="tech-container">
+                      <br></br>
+                      <h4 className="chart-label">technologies</h4>
+                      <ResponsiveContainer>
+                        <EventTechnology events={this.state.events} />
+                      </ResponsiveContainer>
+                    </Container>
+                    <Container className="city-container">
+                      <br></br>
+                      <h4 className="chart-label">events in each city</h4>
+                      <ResponsiveContainer height={400}>
+                        <ScatterChart
+                          align="left"
+                          margin={{ top: 20, right: 30, bottom: 10, left: -20 }}
+                        >
+                          <CartesianGrid />
+                          <XAxis
+                            type="category"
+                            dataKey="city"
+                            name="city"
+                            tick={false}
+                          />
+                          <YAxis
+                            allowDecimals={false}
+                            type="number"
+                            dataKey="number"
+                            name="number of events"
+                          />
+                          <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                          <Scatter
+                            name="locations"
+                            data={this.getData()}
+                            fill="#CE2430"
+                          />
+                        </ScatterChart>
+                      </ResponsiveContainer>
+                    </Container>
+                  </Container>
+                </Col>
+                <Col m={12} lg={{ span: 6, order: "last" }}>
+                  <Container className="outerEventContainer">
+                    <EventList events={this.state.events} />
+                  </Container>
+                </Col>
+              </Row>
             </Container>
           </Container>
         </div>

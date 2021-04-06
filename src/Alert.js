@@ -14,7 +14,7 @@ class Alert extends Component {
 
   render() {
     return (
-      <div className="Alert">
+      <div className="alert">
         <p style={this.getStyle()}>{this.props.text}</p>
       </div>
     );
@@ -24,21 +24,21 @@ class Alert extends Component {
 class InfoAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = "blue";
+    this.color = "#CE2430";
   }
 }
 
 class ErrorAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = "red";
+    this.color = "#CE2430";
   }
 }
 
 class WarningAlert extends Alert {
   constructor(props) {
     super(props);
-    this.color = "orange";
+    this.color = "#CE2430";
   }
 }
 

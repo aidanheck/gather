@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Container from "react-bootstrap/Container";
-// import Button from "react-bootstrap/Button"
-import EventModal from "./modal/EventModal";
+import { Button, Container, Modal } from "react-bootstrap";
+// import EventModal from "./EventModal";
 
 class Event extends Component {
   state = {
     showDetails: false,
   };
 
-  handleShowDetails = () => {
-    if (this.state.showDetails === false) {
-      this.setState({ showDetails: true });
-    } else {
-      this.setState({ showDetails: false });
-    }
+  handleModalDetails = () => {
+    this.setState({ showDetails: !this.state.showDetails });
   };
 
   render() {
@@ -22,42 +17,55 @@ class Event extends Component {
 
     return (
       <Container className="eventContainer">
-      <div className="event">
-        <div className="eventCard">
-          <h1 className="eventCardName">{event.summary}</h1>
-          <p className="eventCardDate">starts: {event.start.dateTime}</p>
-          <p className="eventCardDate">timezone: {event.start.timeZone}</p>
-          <p className="eventCardLocation">location: {event.location}</p>
+        <div className="event">
+          <div className="eventCard">
+            <h1 className="eventCardName">{event.summary}</h1>
+            <p className="eventCardDate">starts: {event.start.dateTime}</p>
+            <p className="eventCardDate">timezone: {event.start.timeZone}</p>
+            <p className="eventCardLocation">location: {event.location}</p>
           </div>
           <hr></hr>
-        <div className="modalButton">
-          <EventModal />
-        </div>
-        <p></p>
-{/*           
-      {!this.state.showDetails && (
+          <p></p>
+          <Container>
             <Button
-              variant="primary"
+              variant="danger"
               className="detailsButton"
-              onClick={() => this.handleShowDetails()}
+              onClick={() => this.handleModalDetails()}
             >
               show details
             </Button>
-          )}
-
-          {this.state.showDetails && (
-            <div className="eventOpen">
-              <p className="eventCardLink">link: {event.htmlLink}</p>
-              <p className="eventCardDesc">description: {event.description}</p>
-              <button
-                className="details-btn"
-                onClick={() => this.handleShowDetails()}
+            <Modal
+              centered
+              show={this.state.showDetails}
+            >
+              <Modal.Header
+                   className="detailModal"
+                closeButton
+                onClick={() => this.handleModalDetails()}
               >
-                hide details
-              </button>
-            </div>
-          )} */}
-      </div>
+                <Modal.Title>{event.summary}
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body className="detailModal">
+            <p className="eventCardDate">starts: {event.start.dateTime}</p>
+            <p className="eventCardDate">timezone: {event.start.timeZone}</p>
+            <p className="eventCardLocation">location: {event.location}</p>
+            <p className="eventCardDesc"> {event.description}</p>
+            <Button href={event.htmlLink} className="linkButton">see details in google calendar!</Button>
+
+              </Modal.Body>
+              <Modal.Footer      className="detailModal">
+                <Button
+                  variant="danger"
+                  className="closeButton"
+                  onClick={() => this.handleModalDetails()}
+                >
+                  close
+                </Button>
+              </Modal.Footer>
+            </Modal>
+          </Container>
+        </div>
       </Container>
     );
   }

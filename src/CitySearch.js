@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { InfoAlert } from "./Alert";
+import { Container } from "react-bootstrap";
 
 class CitySearch extends Component {
   state = {
@@ -45,7 +46,7 @@ class CitySearch extends Component {
 
   render() {
     return (
-      <div className="CitySearch">
+      <Container className="CitySearch">
         
         <InfoAlert text={this.state.infoText} />
         <h3 className="citySearchLabel">choose your nearest city</h3>
@@ -76,7 +77,7 @@ class CitySearch extends Component {
             <b>see all cities</b>
           </li>
         </ul>
-      </div>
+      </Container>
     );
   }
 }
