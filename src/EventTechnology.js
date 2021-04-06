@@ -34,6 +34,7 @@ const EventTechnology = ({ events }) => {
           fill="#8884d8"
           paddingAngle={0}
           dataKey="value"
+          label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
         >
           {data.map((entry, index) => (
             <Cell
