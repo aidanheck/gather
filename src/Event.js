@@ -34,27 +34,26 @@ class Event extends Component {
             >
               show details
             </Button>
-            <Modal
-              centered
-              show={this.state.showDetails}
-            >
+            <Modal centered show={this.state.showDetails}>
               <Modal.Header
-                   className="detailModal"
+                className="detailModal"
                 closeButton
                 onClick={() => this.handleModalDetails()}
               >
-                <Modal.Title>{event.summary}
-                </Modal.Title>
+                <Modal.Title>{event.summary}</Modal.Title>
               </Modal.Header>
               <Modal.Body className="detailModal">
-            <p className="eventCardDate">starts: {event.start.dateTime}</p>
-            <p className="eventCardDate">timezone: {event.start.timeZone}</p>
-            <p className="eventCardLocation">location: {event.location}</p>
-            <p className="eventCardDesc"> {event.description}</p>
-            <Button href={event.htmlLink} className="linkButton">see details in google calendar!</Button>
-
+                <p className="eventCardDate">starts: {event.start.dateTime}</p>
+                <p className="eventCardDate">
+                  timezone: {event.start.timeZone}
+                </p>
+                <p className="eventCardLocation">location: {event.location}</p>
+                <p className="eventCardDesc"> {event.description}</p>
+                <Button href={event.htmlLink} className="linkButton">
+                  see details in google calendar!
+                </Button>
               </Modal.Body>
-              <Modal.Footer      className="detailModal">
+              <Modal.Footer className="detailModal">
                 <Button
                   variant="danger"
                   className="closeButton"

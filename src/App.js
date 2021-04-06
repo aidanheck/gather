@@ -4,7 +4,7 @@ import { extractLocations, getEvents } from "./api";
 import CitySearch from "./CitySearch";
 import EventList from "./EventList";
 import NumberOfEvents from "./NumberOfEvents";
-import { infoAlert } from "./Alert";
+import { InfoAlert } from "./Alert";
 
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
@@ -122,7 +122,7 @@ class App extends Component {
 
         <div className="App">
           <Container className="appContainer">
-            <infoAlert text={this.state.warningText} />
+            <InfoAlert text={this.state.warningText} />
             <CitySearch
               locations={this.state.locations}
               updateEvents={this.updateEvents}

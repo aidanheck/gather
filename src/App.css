@@ -96,7 +96,7 @@ input {
 .numberOfEvents {
   width: 100%;
   text-align: right;
-  margin-top: 3%;
+  /* margin-top: 3%; */
   padding-right: 27.5%;
   color: #9d9d9b;
 }

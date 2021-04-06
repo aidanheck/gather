@@ -9,7 +9,7 @@ class CitySearch extends Component {
     suggestions: [],
     showSuggestions: undefined,
     locations: this.props.locations,
-    infoText: '',
+    infoText: "",
   };
 
   handleInputChanged = (event) => {
@@ -22,14 +22,15 @@ class CitySearch extends Component {
       this.setState({
         query: value,
         showsSuggestions: false,
-        infoText: 'We cannot find the city you are looking for. Please try another city.',
+        infoText:
+          "We cannot find the city you are looking for. Please try another city.",
       });
     } else {
       this.setState({
         query: value,
         suggestions,
         showSuggestions: true,
-        infoText: '',
+        infoText: "",
       });
     }
   };
@@ -47,11 +48,10 @@ class CitySearch extends Component {
   render() {
     return (
       <Container className="CitySearch">
-        
         <InfoAlert text={this.state.infoText} />
         <h3 className="citySearchLabel">choose your nearest city</h3>
         <input
-        style={{width: "45%", height: "2.5em"}}
+          style={{ width: "45%", height: "2.5em" }}
           type="text"
           className="city"
           placeholder="search..."
@@ -73,7 +73,11 @@ class CitySearch extends Component {
               {suggestion}
             </li>
           ))}
-          <li  className="all-text" key="all" onClick={() => this.handleItemClicked("all")}>
+          <li
+            className="all-text"
+            key="all"
+            onClick={() => this.handleItemClicked("all")}
+          >
             <b>see all cities</b>
           </li>
         </ul>

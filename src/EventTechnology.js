@@ -34,13 +34,12 @@ const EventTechnology = ({ events }) => {
           fill="#8884d8"
           paddingAngle={0}
           dataKey="value"
-          
         >
           {data.map((entry, index) => (
             <Cell
               key={`cell-${index}`}
               fill={COLORS[index % COLORS.length]}
-              name= {entry.name}
+              name={entry.name}
             />
           ))}
         </Pie>
@@ -50,7 +49,9 @@ const EventTechnology = ({ events }) => {
           iconSize="8"
           verticalAlign="bottom"
           width={"90%"}
-          label={({ name, percent }) => `${name} ${(percent * 100).toFixed(0)}%`}
+          label={({ name, percent }) =>
+            `${name} ${(percent * 100).toFixed(0)}%`
+          }
           wrapperStyle={{
             bottom: 20,
             left: 25,
